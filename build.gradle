@@ -1,0 +1,36 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from:"config.gradle"
+
+buildscript {
+    // 插件仓库
+    repositories {
+        google()
+        mavenCentral()
+        //applifecycle插件仓也是jitpack
+        maven { url 'https://jitpack.io' }
+    }
+    ext.kotlin_version ="1.5.21"
+    // 插件
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+        //applifecycle Application生命周期分发插件
+        classpath 'com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-plugin:1.0.4'
+        //ARouter路由表自动加载插件
+        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    // 项目用的开源库所在的仓库
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

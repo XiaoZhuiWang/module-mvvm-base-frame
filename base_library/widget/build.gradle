@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    resourcePrefix "widget_"
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // 材质设计库
+    api "com.google.android.material:material:$rootProject.material_version"
+
+    // me.yokeyword:fragmentation库的继续维护版本，支持AndroidX
+    // https://github.com/YoKeyword/Fragmentation/issues/1237
+    api 'me.xuexuan:fragmentationx-core:1.0.6'
+    api 'me.xuexuan:fragmentationx-swipeback:1.0.6'
+
+    //上下拉刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+
+    // 进度加载条
+    api 'com.wang.avi:library:2.1.3'
+
+    //数据加载布局
+    api 'com.kingja.loadsir:loadsir:1.3.8'
+
+    // 强大而灵活的RecyclerView Adapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+
+    // 指示器
+    api 'com.github.hackware1993:MagicIndicator:1.7.0'
+
+    // 圆角库。
+    // 支持LinearLayout、RelativeLayout、FrameLayout、ImageView、TextView、View、Button圆角。
+    // 圆形ImageView直接用CircleImageView，ConstraintLayout的圆角可以使用RoundRelativeLayout包裹
+    // ConstraintLayout来实现
+    api 'com.github.KuangGang:RoundCorners:1.1.0'
+
+
+}

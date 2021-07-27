@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dandelion.login">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/common_ic_launcher"
+        android:name="com.dandelion.common.MyApplication"
+        android:label="@string/login_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/WidgetAppTheme">
+        <activity android:name=".RunModuleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.LoginActivity" android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

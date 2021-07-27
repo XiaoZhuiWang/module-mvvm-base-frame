@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--style 的 name 命名使用大驼峰命名法，几乎每个项目都需要适当的使用 styles.xml 文件，因为对于一个视图来说，
+    有一个重复的外观是很常见的，将所有的外观细节属性（colors、padding、font）放在 styles.xml 文件中。
+    在应用中对于大多数文本内容，最起码你应该有一个通用的 styles.xml 文件-->
+
+    <!--**********View的样式*************-->
+
+    <!--TitleBar的样式-->
+    <style name="WidgetTitleBar">
+        <item name="background">@color/widget_bg_white_FFFFFF</item>
+        <item name="title_text_size">18sp</item>
+        <item name="title_text_color">@color/widget_text_gray_333333</item>
+        <item name="sub_title_text_size">12sp</item>
+        <item name="sub_title_text_color">@color/widget_text_gray_333333</item>
+        <item name="menu_text_size">18sp</item>
+        <item name="menu_text_color">@color/widget_text_gray_333333</item>
+        <item name="menu_margin">16dp</item>
+    </style>
+
+    <!--分割线-->
+    <style name="WidgetDivideLineOne">
+        <item name="background">@color/widget_bg_white_E8E8E8</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!--标准栏目样式-->
+    <style name="WidgetStandardColumnTextView">
+        <item name="background">@color/widget_bg_white_FFFFFF</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/widget_text_gray_333333</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

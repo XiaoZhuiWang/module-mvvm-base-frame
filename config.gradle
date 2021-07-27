@@ -1,0 +1,29 @@
+ext {
+
+    android = [
+            compileSdkVersion: 30,
+            minSdkVersion    : 21,
+            targetSdkVersion : 30,
+            buildToolsVersion: "30.0.3",
+            versionCode      : 100,
+            versionName      : "1.0.0",
+    ]
+
+    libVersion = [
+            retrofit_version = "2.9.0",
+            lifecycle_version = "2.3.1",
+            room_version = "2.3.0",
+            navigation_version = "2.3.5",
+            work_version = "2.6.0-beta01",
+            applifecycle_version = "1.0.4",
+            paging_version = "3.0.0",
+            arouter_version = "1.5.2",
+
+            rxjava_version = "3.0.13",
+            rxjava_android_version = "3.0.0",
+
+            material_version = "1.4.0",
+
+            androidx_annotation_version = "1.2.0"
+    ]
+}

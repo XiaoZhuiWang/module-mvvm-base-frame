@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    resourcePrefix "utils_"
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // androidX依赖库
+    api 'androidx.appcompat:appcompat:1.3.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.annotation:annotation:$rootProject.androidx_annotation_version"
+
+    //Application生命周期器分发
+    api "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:$rootProject.applifecycle_version"
+
+    //ARouter页面路由、组件通信
+    api "com.alibaba:arouter-api:$rootProject.arouter_version"
+
+    //MMKV腾讯出版的代替sp的持久化库
+    api 'com.tencent:mmkv-static:1.2.9'
+
+    //Log日志
+    api 'com.orhanobut:logger:1.15'
+
+    // ToastUtil
+    api 'com.hjq:toast:8.0'
+
+    // Jetpack lifecycle感知型组件
+    // ViewModel
+    api "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycle_version"
+    // 实现在ViewModel中可以获取onSaveInstanceState()中保存的数据
+    api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$rootProject.lifecycle_version"
+    // LiveData
+    api "androidx.lifecycle:lifecycle-livedata:$rootProject.lifecycle_version"
+    // 感知Application的生命周期
+    api "androidx.lifecycle:lifecycle-process:$rootProject.lifecycle_version"
+    // java8环境下的注解处理
+    api "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycle_version"
+
+    //LiveDataBus
+    api 'io.github.jeremyliao:live-event-bus-x:1.8.0'
+
+}

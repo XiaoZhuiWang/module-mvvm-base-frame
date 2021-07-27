@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="widget_no_data">暂无数据</string>
+    <string name="widget_no_network">无网络，请检查网络</string>
+    <string name="widget_can_not_get_data">暂时无法获取数据</string>
+    <string name="widget_reload">重新加载</string>
+
+    <string name="widget_cancel">取消</string>
+
+</resources>

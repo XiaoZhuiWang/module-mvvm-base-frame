@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    resourcePrefix "network_"
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+        }
+
+        debug {
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compileOnly project(':base_library:utils')
+    implementation "androidx.annotation:annotation:$rootProject.androidx_annotation_version"
+    //Rxjava3
+    api "io.reactivex.rxjava3:rxjava:$rootProject.rxjava_version"
+    api "io.reactivex.rxjava3:rxandroid:$rootProject.rxjava_android_version"
+
+    //Fastjson
+    api 'com.alibaba:fastjson:1.2.76'
+    api 'org.ligboy.retrofit2:converter-fastjson:2.1.0'
+
+    //Retrofit
+    api "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    api("com.squareup.retrofit2:adapter-rxjava3:$rootProject.retrofit_version") {
+        exclude module: 'rxjava'
+    }
+    api "com.squareup.okhttp3:okhttp:4.7.2"
+}

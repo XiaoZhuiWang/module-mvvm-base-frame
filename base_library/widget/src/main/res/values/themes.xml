@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="WidgetAppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!--背景透明，侧滑退出需要-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 支持绘制状态栏背景-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!--透明全屏-->
+    <style name="WidgetFullScreenTheme" parent="WidgetAppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

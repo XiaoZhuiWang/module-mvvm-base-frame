@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--color文件就是一个调色板，颜色名仅仅用来表示颜色，而不应跟业务有关。如不应该使用名字bg_login_button
+    而应该使用bg_gray这样的。如果想统一管理某一类型控件的颜色，应该使用style文件-->
+    <!--背景颜色-->
+    <color name="widget_bg_green_45B62D">#45B62D</color> <!--主题色-->
+    <color name="widget_bg_green_63C64F">#63C64F</color>
+    <color name="widget_bg_white_FFFFFF">#FFFFFF</color>
+    <color name="widget_bg_white_F5F5F5">#F5F5F5</color><!--app底色-->
+    <color name="widget_bg_white_C6C6C6">#C6C6C6</color>
+    <color name="widget_bg_gray_5F646E">#5F646E</color>
+    <color name="widget_bg_black_1AFFFFFF">#66FFFFFF</color>
+    <color name="widget_bg_white_E8E8E8">#E8E8E8</color>
+
+    <!--字体颜色-->
+    <color name="widget_text_black_000000">#000000</color>
+    <color name="widget_text_white_FFFFFF">#FFFFFF</color>
+    <color name="widget_text_gray_333333">#333333</color>
+    <color name="widget_text_gray_5F646E">#5F646E</color>
+    <color name="widget_text_gray_666666">#666666</color>
+    <color name="widget_text_gray_999999">#999999</color>
+    <color name="widget_text_gray_A5A5A5">#A5A5A5</color>
+    <color name="widget_text_gray_A6A6A6">#A6A6A6</color>
+    <color name="widget_text_gray_C5C5C5">#C5C5C5</color>
+    <color name="widget_text_green_45B62D">#45B62D</color> <!--主题色-->
+</resources>
