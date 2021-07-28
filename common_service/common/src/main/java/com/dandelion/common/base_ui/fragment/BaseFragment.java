@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dandelion.common.R;
@@ -84,32 +83,6 @@ public abstract class BaseFragment extends SupportFragment {
         return contentView;
     }
 
-    /**
-     * 添加/切换fragment
-     *
-     * @param frameLayoutId 容器
-     * @param fragment      需要添加/切换的fragment
-     */
-    protected void switchFragment(int frameLayoutId, Fragment fragment) {
-        if (fragment != null && fragment != mCurrentFragment) {
-            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-            if (fragment.isAdded()) {
-                if (mCurrentFragment != null) {
-                    transaction.hide(mCurrentFragment).show(fragment);
-                } else {
-                    transaction.show(fragment);
-                }
-            } else {
-                if (mCurrentFragment != null) {
-                    transaction.hide(mCurrentFragment).add(frameLayoutId, fragment);
-                } else {
-                    transaction.add(frameLayoutId, fragment);
-                }
-            }
-            mCurrentFragment = fragment;
-            transaction.commitAllowingStateLoss();
-        }
-    }
 
     /**
      * 依赖注入

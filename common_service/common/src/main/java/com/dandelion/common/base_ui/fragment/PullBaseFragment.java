@@ -46,9 +46,10 @@ public abstract class PullBaseFragment<T extends PullBaseVM> extends LoadBaseFra
             public void onChanged(Integer integer) {
                 switch (integer) {
                     case LoadStatusCode.LOAD_STATUS_DEFAULT_LOADING:
-                        showLoadSirLayout(LoadSirStatusCode.LOAD_ING);
                         if (isDialogLoading()) {
                             showProgressDialog();
+                        }else {
+                            showLoadSirLayout(LoadSirStatusCode.LOAD_ING);
                         }
                         break;
                     case LoadStatusCode.LOAD_STATUS_DEFAULT_SUCCESS:

@@ -70,9 +70,10 @@ public abstract class LoadBaseActivity<T extends LoadBaseVM> extends BaseActivit
             public void onChanged(Integer integer) {
                 switch (integer) {
                     case LoadStatusCode.LOAD_STATUS_DEFAULT_LOADING:
-                        showLoadSirLayout(LoadSirStatusCode.LOAD_ING);
                         if (isDialogLoading()) {
                             showProgressDialog();
+                        }else {
+                            showLoadSirLayout(LoadSirStatusCode.LOAD_ING);
                         }
                         break;
                     case LoadStatusCode.LOAD_STATUS_DEFAULT_SUCCESS:

@@ -14,8 +14,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dandelion.common.R;
@@ -35,7 +33,6 @@ import com.dandelion.widget.swipe_back_layout.app.SwipeBackActivityHelper;
 public abstract class BaseActivity extends SupportActivity implements SwipeBackActivityBase {
     private SwipeBackActivityHelper mHelper;
 
-    private Fragment mCurrentFragment;
     protected TitleBar titleBar;
     protected Activity mContext;
 
@@ -106,7 +103,6 @@ public abstract class BaseActivity extends SupportActivity implements SwipeBackA
         ActivityManager.getInstance().removeActivity(this);
     }
 
-
     private void setContentView() {
         View contentView;
         LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -127,50 +123,6 @@ public abstract class BaseActivity extends SupportActivity implements SwipeBackA
             ((LinearLayout) contentView).addView(initBinding(layoutInflater), layoutParams);
         }
         setContentView(contentView);
-    }
-
-    /**
-     * 切换Fragment
-     *
-     * @param containerViewId
-     * @param fragment
-     */
-    public void switchFragment(int containerViewId, Fragment fragment) {
-        switchFragment(containerViewId, fragment, true);
-    }
-
-    /**
-     * 切换Fragment
-     *
-     * @param containerViewId
-     * @param fragment
-     * @param isShowAnim
-     */
-    public void switchFragment(int containerViewId, Fragment fragment, boolean isShowAnim) {
-        if (fragment != null && fragment != mCurrentFragment) {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
-            if (isShowAnim) {
-                fragmentTransaction.setCustomAnimations(R.anim.widget_alpha_in, R.anim.widget_alpha_out,
-                        R.anim.widget_alpha_in, R.anim.widget_alpha_out);
-            }
-
-            if (fragment.isAdded()) {
-                if (mCurrentFragment != null) {
-                    fragmentTransaction.hide(mCurrentFragment).show(fragment);
-                } else {
-                    fragmentTransaction.show(fragment);
-                }
-            } else {
-                if (mCurrentFragment != null) {
-                    fragmentTransaction.hide(mCurrentFragment).add(containerViewId, fragment);
-                } else {
-                    fragmentTransaction.add(containerViewId, fragment);
-                }
-            }
-            mCurrentFragment = fragment;
-            fragmentTransaction.commitAllowingStateLoss();
-        }
     }
 
     /**
