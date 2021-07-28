@@ -19,9 +19,16 @@
                 android:id="@+id/tv_content"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:text="这里可以滑出屏幕"
+                android:text="Hello Android!"
+                android:textSize="20sp"
+                android:textColor="@color/widget_bg_green_45B62D"
                 android:gravity="center"
                 app:layout_scrollFlags="scroll" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"/>
 
             <net.lucode.hackware.magicindicator.MagicIndicator
                 android:layout_width="match_parent"

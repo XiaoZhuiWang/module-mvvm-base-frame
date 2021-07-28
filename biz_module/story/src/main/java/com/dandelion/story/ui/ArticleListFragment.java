@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.dandelion.common.base_ui.fragment.SimpleListBaseFragment;
 import com.dandelion.communication.story.router.StoryRouterTable;
@@ -14,6 +16,8 @@ import com.dandelion.story.R;
 import com.dandelion.story.data.bean.ArticleBean;
 import com.dandelion.story.databinding.StoryItemArticleBinding;
 import com.dandelion.story.vm.ArticleListVM;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 文章列表
@@ -62,15 +66,14 @@ public class ArticleListFragment extends SimpleListBaseFragment<ArticleListVM, A
 
     @Override
     protected void addListener() {
-  /*      mAdapter.setOnItemClickListener(new OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
+            public void onItemClick(@NotNull BaseQuickAdapter<?, ?> adapter, @NotNull View view, int position) {
 
             }
-        });*/
+        });
 
     }
-
 
 
 }

@@ -130,7 +130,7 @@ public abstract class SimpleListBaseFragment<T extends SimpleListBaseFragment.Si
      */
     protected abstract void convertItem(BaseViewHolder baseViewHolder, V v);
 
-    private class SimpleAdapter extends BaseQuickAdapter<V, BaseViewHolder> {
+    protected class SimpleAdapter extends BaseQuickAdapter<V, BaseViewHolder> {
 
         public SimpleAdapter() {
             super(attachItemLayoutRes());

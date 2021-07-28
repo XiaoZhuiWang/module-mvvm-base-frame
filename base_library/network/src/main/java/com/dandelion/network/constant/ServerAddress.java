@@ -6,15 +6,15 @@ package com.dandelion.network.constant;
  */
 public enum ServerAddress {
     // 测试环境
-    TEST("https://test.linyinli.com/api/test/",
-            "https://test.linyinli.com/api/test/"),
+    TEST("https://www.baidu.com/",
+            "https://www.baidu.com/"),
 
     // beta环境
-    BETA("https://test.linyinli.com/api/test/",
-            "https://test.linyinli.com/api/test/"),
+    BETA("https://www.baidu.com/",
+            "https://www.baidu.com/"),
     // 生产环境
-    RELEASE("https://test.linyinli.com/api/test/",
-            "https://test.linyinli.com/api/test/");
+    RELEASE("https://www.baidu.com/",
+            "https://www.baidu.com/");
 
 
     private String mainHost;

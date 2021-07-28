@@ -54,7 +54,7 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        mBinding.ivHeader.setBackgroundResource(R.drawable.utils_ic_image_load_error);
+        mBinding.ivHeader.setBackgroundResource(R.drawable.me_ic_header_pic);
         if(LoginServiceUtil.isLogin()){
             mBinding.tvNickName.setText("已登录");
         }else {

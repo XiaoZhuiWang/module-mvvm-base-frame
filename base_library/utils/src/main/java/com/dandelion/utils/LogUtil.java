@@ -12,12 +12,8 @@ public class LogUtil {
      * 利用这些TAG（而不是在代码中设置各种日志Debug），配合Android Studio的LogCat日志过滤器，可以清晰简洁的看到各种Log
      */
 
-    public static final String TAG = "Boulevard";
+    public static final String TAG = "module-mvvm";
 
-    // Socket TAG
-    public static final String SOCKET_REQUEST_JYONLINE_TAG = "Socket请求";
-    public static final String SOCKET_RESPOND_JYONLINE_TAG = "Socket回复";
-    public static final String SOCKET_EXCEPTION_JYONLINE_TAG = "Socket异常";
     //Http TAG
     public static final String HTTP_REQUEST_TAG = "HTTP请求";
     public static final String HTTP_RESPOND_TAG = "HTTP回复";

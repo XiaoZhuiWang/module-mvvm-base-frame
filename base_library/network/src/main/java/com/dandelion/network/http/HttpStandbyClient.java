@@ -4,7 +4,7 @@ package com.dandelion.network.http;
 import com.dandelion.network.constant.EnvHelper;
 
 /**
- * 主ip的HttpClient
+ * ip2的HttpClient
  * Created by lin.wang on 2021.06.30
  */
 public class HttpStandbyClient extends HttpBaseClient {

@@ -46,7 +46,6 @@ dependencies {
     // me.yokeyword:fragmentation库的继续维护版本，支持AndroidX
     // https://github.com/YoKeyword/Fragmentation/issues/1237
     api 'me.xuexuan:fragmentationx-core:1.0.6'
-    api 'me.xuexuan:fragmentationx-swipeback:1.0.6'
 
     //上下拉刷新
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'

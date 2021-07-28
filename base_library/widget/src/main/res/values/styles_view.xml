@@ -18,6 +18,13 @@
         <item name="menu_margin">16dp</item>
     </style>
 
+    <style name="WidgetSwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@drawable/widget_shadow_left</item>
+        <item name="shadow_right">@drawable/widget_shadow_right</item>
+        <item name="shadow_bottom">@drawable/widget_shadow_bottom</item>
+    </style>
+
     <!--分割线-->
     <style name="WidgetDivideLineOne">
         <item name="background">@color/widget_bg_white_E8E8E8</item>

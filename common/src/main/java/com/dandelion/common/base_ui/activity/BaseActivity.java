@@ -21,9 +21,10 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.dandelion.common.R;
 import com.dandelion.utils.ActivityManager;
 import com.dandelion.widget.TitleBar;
-
-import me.yokeyword.fragmentation.SwipeBackLayout;
-import me.yokeyword.fragmentation_swipeback.core.SwipeBackActivityDelegate;
+import com.dandelion.widget.swipe_back_layout.SwipeBackLayout;
+import com.dandelion.widget.swipe_back_layout.Utils;
+import com.dandelion.widget.swipe_back_layout.app.SwipeBackActivityBase;
+import com.dandelion.widget.swipe_back_layout.app.SwipeBackActivityHelper;
 
 
 /**
@@ -31,8 +32,8 @@ import me.yokeyword.fragmentation_swipeback.core.SwipeBackActivityDelegate;
  * Created by lin.wang on 2021/6/23.
  */
 
-public abstract class BaseActivity extends SupportActivity implements ISwipeBack {
-    private SwipeBackActivityDelegate mDelegate;
+public abstract class BaseActivity extends SupportActivity implements SwipeBackActivityBase {
+    private SwipeBackActivityHelper mHelper;
 
     private Fragment mCurrentFragment;
     protected TitleBar titleBar;
@@ -45,10 +46,9 @@ public abstract class BaseActivity extends SupportActivity implements ISwipeBack
         mContext = this;
         ActivityManager.getInstance().addActivity(this);
 
-        if(canSwipeBack()){
-            mDelegate = new SwipeBackActivityDelegate(this);
-            mDelegate.onCreate(savedInstanceState);
-            mDelegate.setSwipeBackEnable(true);
+        if (canSwipeBack()) {
+            mHelper = new SwipeBackActivityHelper(this);
+            mHelper.onActivityCreate();
         }
 
         setStatusBarStyle(appointStatusBarColor(), isFillStatusBar());
@@ -66,20 +66,39 @@ public abstract class BaseActivity extends SupportActivity implements ISwipeBack
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        if(canSwipeBack()){
-            mDelegate.onPostCreate(savedInstanceState);
+        if (mHelper != null) {
+            mHelper.onPostCreate();
         }
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public View findViewById(int id) {
+        View v = super.findViewById(id);
+        if (v == null && mHelper != null)
+            return mHelper.findViewById(id);
+        return v;
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public SwipeBackLayout getSwipeBackLayout() {
+        return mHelper == null ? null : mHelper.getSwipeBackLayout();
     }
+
+    @Override
+    public void setSwipeBackEnable(boolean enable) {
+        if (getSwipeBackLayout() != null) {
+            getSwipeBackLayout().setEnableGesture(enable);
+        }
+    }
+
+    @Override
+    public void scrollToFinishActivity() {
+        Utils.convertActivityToTranslucent(this);
+        if (getSwipeBackLayout() != null) {
+            getSwipeBackLayout().scrollToFinishActivity();
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -87,10 +106,6 @@ public abstract class BaseActivity extends SupportActivity implements ISwipeBack
         ActivityManager.getInstance().removeActivity(this);
     }
 
-    @Override
-    public SwipeBackLayout getSwipeBackLayout() {
-        return canSwipeBack() ? mDelegate.getSwipeBackLayout() : null;
-    }
 
     private void setContentView() {
         View contentView;

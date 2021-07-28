@@ -19,7 +19,7 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
- * 观察以Rx的方式返回的Retrofit请求，并进行统一错误处理
+ * 以RxJava的Observer方式返回的Retrofit请求，并进行统一错误处理
  * Created by lin.wang on 2021/6/30
  */
 @SuppressWarnings("ALL")
