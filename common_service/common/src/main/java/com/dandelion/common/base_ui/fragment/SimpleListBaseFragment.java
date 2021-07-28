@@ -34,25 +34,6 @@ public abstract class SimpleListBaseFragment<T extends SimpleListBaseFragment.Si
 
     protected SimpleAdapter mAdapter;
 
-    @SuppressWarnings("unchecked")
-    @NotNull
-    @Override
-    protected T initViewModel() {
-        T viewModel = instanceViewModel();
-        viewModel.getDataLiveData().observe(this, new Observer<List<V>>() {
-            @Override
-            public void onChanged(List<V> vs) {
-                if (CollectionUtil.isEmpty(mAdapter.getData())) {
-                    mAdapter.setNewInstance(vs);
-                } else {
-                    // TODO: 2021/7/22 可以优化成局部刷新，如何拿到加载类型？
-                    mAdapter.notifyDataSetChanged();
-                }
-            }
-        });
-        return viewModel;
-    }
-
     @Override
     protected void objectInject() {
         mAdapter = new SimpleAdapter();
@@ -77,6 +58,21 @@ public abstract class SimpleListBaseFragment<T extends SimpleListBaseFragment.Si
         }
 
         mBinding.recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void addListener() {
+        viewModel.getDataLiveData().observe(this, new Observer<List<V>>() {
+            @Override
+            public void onChanged(List<V> vs) {
+                if (CollectionUtil.isEmpty(mAdapter.getData())) {
+                    mAdapter.setNewInstance(vs);
+                } else {
+                    // TODO: 2021/7/22 可以优化成局部刷新，如何拿到加载类型？
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 
     @Override
@@ -114,13 +110,6 @@ public abstract class SimpleListBaseFragment<T extends SimpleListBaseFragment.Si
     protected View addHeaderView() {
         return null;
     }
-
-    /**
-     * 创建ViewModel
-     *
-     * @return
-     */
-    protected abstract T instanceViewModel();
 
     /**
      * 设置条目

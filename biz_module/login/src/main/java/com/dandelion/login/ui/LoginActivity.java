@@ -66,9 +66,7 @@ public class LoginActivity extends BaseActivity {
                 ARouter.getInstance()
                         .build(targetPath)
                         .with(getIntent().getExtras())
-                        .greenChannel() //登录成功后，跳过所有拦截器
                         .navigation();
-
 
                 finish();
             }

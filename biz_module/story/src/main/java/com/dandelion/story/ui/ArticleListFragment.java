@@ -44,13 +44,6 @@ public class ArticleListFragment extends SimpleListBaseFragment<ArticleListVM, A
     }
 
     @Override
-    protected ArticleListVM instanceViewModel() {
-        ArticleListVM articleListVM = new ViewModelProvider(this).get(ArticleListVM.class);
-        articleListVM.setColumn(mColumn);
-        return articleListVM;
-    }
-
-    @Override
     protected void convertItem(BaseViewHolder baseViewHolder, ArticleBean articleBean) {
         StoryItemArticleBinding binding = baseViewHolder.getBinding();
         if (binding != null) {
@@ -64,8 +57,17 @@ public class ArticleListFragment extends SimpleListBaseFragment<ArticleListVM, A
         return mColumn == COLUMN_RECOMMEND ? null : super.onAttachLoadSir();
     }
 
+    @NotNull
+    @Override
+    protected ArticleListVM initViewModel() {
+        ArticleListVM articleListVM = new ViewModelProvider(this).get(ArticleListVM.class);
+        articleListVM.setColumn(mColumn);
+        return articleListVM;
+    }
+
     @Override
     protected void addListener() {
+        super.addListener();
         mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NotNull BaseQuickAdapter<?, ?> adapter, @NotNull View view, int position) {

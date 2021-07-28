@@ -64,13 +64,13 @@ public abstract class BaseFragment extends SupportFragment {
         return contentView;
     }
 
-    private View createContentView(LayoutInflater inflater) {
+    private View createContentView(LayoutInflater layoutInflater) {
         View contentView;
         if (!hasTitleBar()) {
-            contentView = initBinding(inflater);
+            contentView = initBinding(layoutInflater);
         } else {
             // 给界面添加TitleBar
-            contentView = inflater.inflate(R.layout.common_layout_title_bar_containor, null);
+            contentView = layoutInflater.inflate(R.layout.common_layout_title_bar_containor, null);
             titleBar = contentView.findViewById(R.id.title_bar);
             titleBar.setNavigationOnClickListener(new android.view.View.OnClickListener() {
                 @Override
@@ -78,7 +78,9 @@ public abstract class BaseFragment extends SupportFragment {
                     mContext.onBackPressedSupport();
                 }
             });
-            ((LinearLayout) contentView).addView(initBinding(inflater));
+            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            ((LinearLayout) contentView).addView(initBinding(layoutInflater), layoutParams);
         }
         return contentView;
     }
