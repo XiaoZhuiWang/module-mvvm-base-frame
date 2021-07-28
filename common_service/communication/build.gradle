@@ -35,5 +35,9 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
+    compileOnly "com.alibaba:arouter-api:$rootProject.arouter_version"
+    //Fastjson
+    compileOnly 'com.alibaba:fastjson:1.2.76'
+
+    compileOnly project(':base_library:network')
 }

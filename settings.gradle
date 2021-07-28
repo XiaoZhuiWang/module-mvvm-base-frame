@@ -5,10 +5,11 @@ include ':biz_module:story'
 include ':biz_module:me'
 include ':biz_module:login'
 
-
-include ':common'
 include ':biz_base_module:open_platform'
 include ':biz_base_module:push'
+
+include ':common_service:common'
+include ':common_service:communication'
 
 include ':base_library:network'
 include ':base_library:utils'
@@ -16,6 +17,5 @@ include ':base_library:database'
 include ':base_library:widget'
 
 
-include ':biz_base_module:communication'
 
 

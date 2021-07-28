@@ -72,8 +72,8 @@ android {
 
 dependencies {
 
-    implementation project(':common')
-    implementation project(':biz_base_module:communication')
+    implementation project(':common_service:common')
+    implementation project(':common_service:communication')
     if (!isRunModule.toBoolean()) {
         //业务组件为集成开发模式
         implementation project(':biz_module:story')

@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    api 'com.google.android.material:material:1.4.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+
     // 材质设计库
     api "com.google.android.material:material:$rootProject.material_version"
 

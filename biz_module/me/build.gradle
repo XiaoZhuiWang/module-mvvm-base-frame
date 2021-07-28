@@ -65,11 +65,10 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
-    implementation project(':biz_base_module:communication')
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation project(':common_service:common')
+    implementation project(':common_service:communication')
+    implementation project(':biz_base_module:open_platform')
+    implementation project(':biz_base_module:push')
 
     annotationProcessor "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-compiler:$rootProject.applifecycle_version"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouter_version"

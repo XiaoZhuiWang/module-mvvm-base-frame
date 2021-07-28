@@ -66,8 +66,8 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
-    implementation project(':biz_base_module:communication')
+    implementation project(':common_service:common')
+    implementation project(':common_service:communication')
 
     annotationProcessor "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-compiler:$rootProject.applifecycle_version"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouter_version"

@@ -33,11 +33,12 @@ android {
 }
 
 dependencies {
+
     // androidX依赖库
     api 'androidx.appcompat:appcompat:1.3.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.4'
     api 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.annotation:annotation:$rootProject.androidx_annotation_version"
+    api "androidx.annotation:annotation:$rootProject.androidx_annotation_version"
 
     //Application生命周期器分发
     api "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:$rootProject.applifecycle_version"
